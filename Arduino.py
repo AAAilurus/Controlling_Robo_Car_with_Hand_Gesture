@@ -1,13 +1,13 @@
 
 const int leftMotorForwardPin = 9;  // Left motor forward
 const int leftMotorBackwardPin = 8; // Left motor backward
-const int leftMotorSpeedPin = 10;   // Left motor speed control (PWM)
+const int leftMotorSpeedPin = 10;   
 
 const int rightMotorForwardPin = 7;  // Right motor forward
 const int rightMotorBackwardPin = 6; // Right motor backward
-const int rightMotorSpeedPin = 5;    // Right motor speed control (PWM)
+const int rightMotorSpeedPin = 5;    
 
-char command;  // Stores received Bluetooth command
+char command;  
 
 void setup() {
   pinMode(leftMotorForwardPin, OUTPUT);
@@ -18,7 +18,7 @@ void setup() {
   pinMode(rightMotorBackwardPin, OUTPUT);
   pinMode(rightMotorSpeedPin, OUTPUT);
 
-  Serial.begin(9600);  // Bluetooth serial start
+  Serial.begin(9600);  
 }
 
 void loop() {
