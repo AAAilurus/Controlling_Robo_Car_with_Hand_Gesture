@@ -1,4 +1,3 @@
-// Motor driver pin assignments
 int leftMotorInput1 = 2;   // IN1 of L298N motor driver
 int leftMotorInput2 = 3;   // IN2
 int rightMotorInput1 = 4;  // IN3
@@ -7,7 +6,7 @@ int leftMotorSpeedControl = 9;   // ENA (PWM for left motor)
 int rightMotorSpeedControl = 10; // ENB (PWM for right motor)
 
 void setup() {
-  Serial.begin(9600);  // Set up Bluetooth serial communication
+  Serial.begin(9600);  // Bluetooth serial communication
   pinMode(leftMotorInput1, OUTPUT);
   pinMode(leftMotorInput2, OUTPUT);
   pinMode(rightMotorInput1, OUTPUT);
