@@ -3,7 +3,6 @@ import mediapipe as mediapipe_module
 import time 
 import serial 
 
-# Set up Bluetooth Serial communication
 bluetooth_serial = serial.Serial('/dev/rfcomm0', 9600)
 
 hand_module = mediapipe_module.solutions.hands
