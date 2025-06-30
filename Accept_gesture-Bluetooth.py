@@ -28,4 +28,4 @@ def handle_command():
         return jsonify({"error": "Bluetooth serial not available"}), 500
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000) #hosting
+    app.run(host="0.0.0.0", port=5000) # hosting
