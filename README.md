@@ -1,6 +1,5 @@
 This project demonstrates a gesture-controlled robot car using Raspberry Pi, MediaPipe, OpenCV, Bluetooth (HC-05), and Arduino Uno. 
 
-A webcam connected to the Raspberry Pi captures real-time hand gestures, which are processed using MediaPipe and OpenCV. Recognized gestures (like an open palm, fist, or directional fingers) are mapped to motion commands—such as forward, backward, left, right, and stop.
-The Raspberry Pi sends these commands wirelessly via Bluetooth to the Arduino Uno, which drives the robot car using an L298N motor driver and DC motors. This setup enables wireless, intuitive control of a robot car without additional remotes or RF modules.
-Raspberry is used in it to run the Python program that captures webcam input, detects hand gestures using MediaPipe and OpenCV, and sends control commands to the Arduino over Bluetooth.
-Hc-05 module is used to enable wireless communication between Raspberry Pi and Arduino.
+The idea is a gesture-controlled smart robot car that integrates computer vision, wireless communication, and robotics. The system uses MediaPipe and OpenCV running on a PC or laptop to detect hand gestures in real-time through a webcam. Originally, the plan was to run the gesture detection directly on the Raspberry Pi, but due to hardware limitations and performance issues with MediaPipe on the Pi, a different approach was taken. Instead, Flask was used to run a lightweight web server on the Raspberry Pi, which receives gesture commands sent from the PC over Wi-Fi. These commands—such as 'F' for forward or 'L' for left—are then sent from the Pi to an Arduino Uno using the HC-05 Bluetooth module. The Arduino interprets these commands and drives the motors of the robot car through an L298N motor driver module. This design provides a smooth, intuitive way to control the robot using just hand movements, and it can be further upgraded with features like autonomous mode, obstacle avoidance, or voice control.
+
+
