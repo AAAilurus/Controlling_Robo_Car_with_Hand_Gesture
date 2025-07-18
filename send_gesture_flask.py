@@ -1,18 +1,21 @@
-import requests
+from flask import Flask, request
+import serial
 
+bt = serial.Serial('/dev/rfcomm0', 9600, timeout=1)
 
-pi_ip = "192.168.1.253"  
+app = Flask(__name__)
 
-url = f"http://{pi_ip}:5000/command"
+@app.route('/command', methods=['POST'])
+def send_command():
+    data = request.get_json()
+    cmd = data.get('command', '').upper()  
 
+    if cmd in ['F', 'B', 'L', 'R', 'S']:
+        bt.write(cmd.encode())
+        print(f"Sent to Arduino: {cmd}")
+        return {'status': 'ok', 'sent': cmd}
+    else:
+        return {'status': 'error', 'message': 'Invalid command'}, 400
 
-command_to_send = "None"  
-
-payload = {"command": command_to_send}
-
-try:
-    response = requests.post(url, json=payload)
-    print("Sent command:", command_to_send)
-    print("Response from Pi:", response.text)
-except Exception as e:
-    print("Failed to send command:", e)
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
